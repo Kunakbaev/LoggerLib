@@ -44,6 +44,16 @@ Colors getCurrentColor();
     \brief printf but with color equal to CURRENT_COLOR
     \param[in] ... printf args
 */
+
+
+/// @brief prints in stderror but with red color
+#define colourfullPrintToStream(stream, ...)               \
+    do {                                                   \
+        fprintf(stream, "%s", getColor(getCurrentColor())); \
+        fprintf(stream, __VA_ARGS__);                      \
+        fprintf(stream, "%s", getColor(BASE_COLOR));       \
+    } while(0)
+
 #define colourfullPrint(...)                             \
     do {                                                 \
         printf("%s", getColor(getCurrentColor()));       \

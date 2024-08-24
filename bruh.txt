@@ -1,0 +1,9 @@
+DEBUG from File: main.cpp, Function: main, Line: 9 at 2024-08-24 09:41:52:849   ->   i am log debug
+INFO from File: main.cpp, Function: main, Line: 10 at 2024-08-24 09:41:52:849   ->   i am log info
+WARNING from File: main.cpp, Function: main, Line: 11 at 2024-08-24 09:41:52:849   ->   i am log warn
+ERROR from File: main.cpp, Function: main, Line: 12 at 2024-08-24 09:41:52:849   ->   i am log error
+error
+is : 1
+is : 1
+is : 1
+is : 1
