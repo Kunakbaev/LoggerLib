@@ -1,9 +1,15 @@
-DEBUG from File: main.cpp, Function: main, Line: 9 at 2024-08-24 09:41:52:849   ->   i am log debug
-INFO from File: main.cpp, Function: main, Line: 10 at 2024-08-24 09:41:52:849   ->   i am log info
-WARNING from File: main.cpp, Function: main, Line: 11 at 2024-08-24 09:41:52:849   ->   i am log warn
-ERROR from File: main.cpp, Function: main, Line: 12 at 2024-08-24 09:41:52:849   ->   i am log error
-error
-is : 1
-is : 1
-is : 1
-is : 1
+INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:32:05:854   ->   New logging session started
+DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:32:05:854   ->   i am log debug
+INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:32:05:854   ->   i am log info
+WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:32:05:854   ->   i am log warn
+ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:32:05:854   ->   i am log error
+is transfer : 1
+file 0
+is transfer : 1
+file 0
+is transfer : 1
+file 0
+is transfer : 1
+file 0
+is transfer : 1
+file 0

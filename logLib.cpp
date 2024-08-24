@@ -7,10 +7,13 @@
 #include "colourfulPrintLib/colourfullPrint.hpp"
 #include "logLib.hpp"
 
+static const char* FILE_OPENING_ERROR = "Error: couldn't open file\n";
+
 static char timeBuffer[30] = {};
 static char buffer[256] = {};
 
-Levels loggingLevel = {};
+static Levels loggingLevel = INFO;
+static FILE* logFile = NULL;
 
 const char* getLogMessage(Levels level) {
     switch (level) {
@@ -46,6 +49,7 @@ const char* getCurrentTimeFormatted() {
 
     long long mils = (long double)currentTime.tv_usec / 1000; // 1000 - mils in one second
     struct tm *tm_info = localtime(&currentTime.tv_sec);
+    assert(tm_info != NULL);
 
     strftime(timeBuffer, sizeof(timeBuffer), "%Y-%m-%d %H:%M:%S", tm_info);
     sprintf(timeBuffer + strlen(timeBuffer), ":%.3Ld", mils);
@@ -53,14 +57,16 @@ const char* getCurrentTimeFormatted() {
 }
 
 static int getTrimDx(const char* line, int maxLen) {
+    assert(line != NULL);
+
     size_t len = strlen(line);
     return len > maxLen ? len - maxLen : 0;
 }
 
 const char* getLoggingMessage(Levels level, const char* fileName, const char* funcName, int line) {
-    buffer[0] = '\0';
-    for (int i = 0; i < 256; ++i)
-        buffer[i] = '\0';
+    assert(fileName != NULL);
+    assert(funcName != NULL);
+
     const char* currentTime = getCurrentTimeFormatted();
     const char* logMessage = getLogMessage(level);
 
@@ -69,4 +75,27 @@ const char* getLoggingMessage(Levels level, const char* fileName, const char* fu
             logMessage, fileName + getTrimDx(fileName, 30),
             funcName + getTrimDx(funcName, 20), line, currentTime);
     return buffer;
+}
+
+void stateLogFile(const char* logFileName) {
+    assert(logFileName != NULL);
+
+    // we want to add to file, not to clear it every time we relaunch our app
+    logFile = fopen(logFileName, "a");
+    if (logFile == NULL) {
+        // assert(false);
+        printError("%s", FILE_OPENING_ERROR);
+    }
+
+    //fprintf(logFile, "------------------------------------\n");
+    LOG_INFO("New logging session started\n");
+}
+
+FILE* getLogFile() {
+    return logFile;
+}
+
+void destructLogger() {
+    if (logFile != NULL)
+        fclose(logFile);
 }

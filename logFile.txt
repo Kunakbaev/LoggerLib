@@ -1,0 +1,38 @@
+------------------------------------
+INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:27:59:904   ->   New logging session started
+DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:27:59:904   ->   i am log debug
+INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:27:59:904   ->   i am log info
+WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:27:59:904   ->   i am log warn
+ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:27:59:904   ->   i am log error
+------------------------------------
+INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:28:08:971   ->   New logging session started
+DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:28:08:971   ->   i am log debug
+INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:28:08:971   ->   i am log info
+WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:28:08:971   ->   i am log warn
+ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:28:08:971   ->   i am log error
+------------------------------------
+INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:29:24:641   ->   New logging session started
+DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:29:24:641   ->   i am log debug
+INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:29:24:642   ->   i am log info
+WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:29:24:642   ->   i am log warn
+ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:29:24:642   ->   i am log error
+------------------------------------
+INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:30:01:281   ->   New logging session started
+DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:30:01:282   ->   i am log debug
+INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:30:01:282   ->   i am log info
+WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:30:01:282   ->   i am log warn
+ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:30:01:282   ->   i am log error
+------------------------------------
+------------------------------------
+INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:30:19:864   ->   New logging session started
+DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:30:19:864   ->   i am log debug
+INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:30:19:864   ->   i am log info
+WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:30:19:864   ->   i am log warn
+ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:30:19:864   ->   i am log error
+------------------------------------
+INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:32:01:676   ->   New logging session started
+DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:32:01:676   ->   i am log debug
+INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:32:01:676   ->   i am log info
+WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:32:01:676   ->   i am log warn
+ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:32:01:676   ->   i am log error
+------------------------------------
