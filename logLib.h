@@ -8,8 +8,9 @@
 #include <sys/time.h>
 #include <assert.h>
 #include <unistd.h>
+#include <stdbool.h>
 
-#include "colourfulPrintLib/colourfullPrint.hpp"
+#include "colourfulPrintLib/colourfullPrint.h"
 
 
 // level of logging can be set, log is happening only if log level is >= that setted
@@ -30,23 +31,34 @@ enum Levels {
     ERROR   = 3,
 };
 
-const char* getLogMessage(Levels level);
+const char* getLogMessage(enum Levels level);
 
-Colors getTextColorForLevel(Levels level);
+enum Colors getTextColorForLevel(enum Levels level);
 
-void setLoggingLevel(Levels level);
+void setLoggingLevel(enum Levels level);
 
-Levels getLoggingLevel();
+enum Levels getLoggingLevel();
 
 const char* getCurrentTimeFormatted();
 
-const char* getLoggingMessage(Levels level, const char* fileName, const char* funcName, int line);
+const char* getLoggingMessage(enum Levels level, const char* fileName, const char* funcName, int line);
 
 void stateLogFile(const char* logFileName);
 
 FILE* getLogFile();
 
 void destructLogger();
+
+void parseDbgArgs(const char* argsName, ...);
+
+
+#ifdef NO_LOG_INFO
+#define NO_INFO
+#endif
+//
+// #define DBG(...) do { \
+//     parseDbgArgs(#__VA_ARGS__, __VA_ARGS__); \
+// } while (0)
 
 #define LOG_MESSAGE(level, ...)                                                                     \
     do {                                                                                            \
@@ -55,13 +67,11 @@ void destructLogger();
             changeTextColor(getTextColorForLevel(level));                                           \
             FILE* logFile = getLogFile();                                                           \
             bool isTransferToFile = !isatty(STDOUT_FILENO);                                         \
-            FILE* stream = (logFile == NULL || isTransferToFile) ? stderr : logFile;                  \
-            printf("is transfer : %d\n", isTransferToFile);                    \
+            FILE* stream = (logFile == NULL || isTransferToFile) ? stderr : logFile;                \
                                                                                                     \
-            if (isTransferToFile || logFile != NULL) {                                        \
+            if (isTransferToFile || logFile != NULL) {                                              \
                 fprintf(stream, "%s", getLoggingMessage(level, __FILE__, __FUNCTION__, __LINE__));  \
                 fprintf(stream, __VA_ARGS__);                                                       \
-                printf("file %d\n", stream == logFile);                                             \
             } else {                                                                                \
                 colourfullPrintToStream(stderr, "%s",                                               \
                 getLoggingMessage(level, __FILE__, __FUNCTION__, __LINE__));                        \

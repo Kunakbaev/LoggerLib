@@ -38,7 +38,7 @@ void changeTextColor(enum Colors newColor);
 
 
 /// @brief return current text color
-Colors getCurrentColor();
+enum Colors getCurrentColor();
 
 /**
     \brief printf but with color equal to CURRENT_COLOR
