@@ -1,38 +1,28 @@
-------------------------------------
-INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:27:59:904   ->   New logging session started
-DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:27:59:904   ->   i am log debug
-INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:27:59:904   ->   i am log info
-WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:27:59:904   ->   i am log warn
-ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:27:59:904   ->   i am log error
-------------------------------------
-INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:28:08:971   ->   New logging session started
-DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:28:08:971   ->   i am log debug
-INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:28:08:971   ->   i am log info
-WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:28:08:971   ->   i am log warn
-ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:28:08:971   ->   i am log error
-------------------------------------
-INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:29:24:641   ->   New logging session started
-DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:29:24:641   ->   i am log debug
-INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:29:24:642   ->   i am log info
-WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:29:24:642   ->   i am log warn
-ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:29:24:642   ->   i am log error
-------------------------------------
-INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:30:01:281   ->   New logging session started
-DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:30:01:282   ->   i am log debug
-INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:30:01:282   ->   i am log info
-WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:30:01:282   ->   i am log warn
-ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:30:01:282   ->   i am log error
-------------------------------------
-------------------------------------
-INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:30:19:864   ->   New logging session started
-DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:30:19:864   ->   i am log debug
-INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:30:19:864   ->   i am log info
-WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:30:19:864   ->   i am log warn
-ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:30:19:864   ->   i am log error
-------------------------------------
-INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:32:01:676   ->   New logging session started
-DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:32:01:676   ->   i am log debug
-INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:32:01:676   ->   i am log info
-WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:32:01:676   ->   i am log warn
-ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:32:01:676   ->   i am log error
-------------------------------------
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 101  at 2024-08-24 23:26:33:279   ->   New logging session started
+[constCharPtrVar : fdaslkfjd] [intVar : 10] [longDoubleVar : 3.14159] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 26   at 2024-08-24 23:26:33:279   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 27   at 2024-08-24 23:26:33:279   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 28   at 2024-08-24 23:26:33:279   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 29   at 2024-08-24 23:26:33:279   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 101  at 2024-08-24 23:28:23:151   ->   New logging session started
+[constCharPtrVar : i am const char ptr] [intVar : 10] [longDoubleVar : 3.14159] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-24 23:28:23:151   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-24 23:28:23:151   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-24 23:28:23:151   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 26   at 2024-08-24 23:28:23:151   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 101  at 2024-08-24 23:28:46:831   ->   New logging session started
+[constCharPtrVar : i am const char ptr] [intVar : 10] [longDoubleVar : 3.14159] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-24 23:28:46:831   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-24 23:28:46:831   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-24 23:28:46:831   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-24 23:28:46:831   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 101  at 2024-08-24 23:29:06:412   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-24 23:29:06:412   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-24 23:29:06:412   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-24 23:29:06:412   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-24 23:29:06:412   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 101  at 2024-08-24 23:29:20:182   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-24 23:29:20:182   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-24 23:29:20:182   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-24 23:29:20:182   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-24 23:29:20:182   ->   i am log error

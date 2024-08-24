@@ -45,6 +45,13 @@ enum Colors getCurrentColor();
     \param[in] ... printf args
 */
 
+/// @brief prints in stderror but with red color
+#define colourfullDebugToStream(stream, ...)               \
+    do {                                                   \
+        fprintf(stream, "%s", getColor(getCurrentColor())); \
+        fprintf(stream, __VA_ARGS__);                      \
+        fprintf(stream, "%s", getColor(BASE_COLOR));       \
+    } while(0)
 
 /// @brief prints in stderror but with red color
 #define colourfullPrintToStream(stream, ...)               \

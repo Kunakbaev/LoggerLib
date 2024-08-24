@@ -49,16 +49,10 @@ FILE* getLogFile();
 
 void destructLogger();
 
-void parseDbgArgs(const char* argsName, ...);
-
 
 #ifdef NO_LOG_INFO
 #define NO_INFO
 #endif
-//
-// #define DBG(...) do { \
-//     parseDbgArgs(#__VA_ARGS__, __VA_ARGS__); \
-// } while (0)
 
 #define LOG_MESSAGE(level, ...)                                                                     \
     do {                                                                                            \
