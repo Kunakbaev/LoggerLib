@@ -1,14 +1,17 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define NO_LOG_INFO
+// #define NO_LOG_DEBUG
+// #define NO_LOG_INFO
+// #define NO_LOG_WARNING
+// #define NO_LOG_ERROR
 
 #include "logLib.h"
 #include "debugMacros.h"
 
 int main() {
     setLoggingLevel(DEBUG);
-    stateLogFile("logFile.txt");
+    //stateLogFile("logFile.txt");
 
     const char* constCharPtrVar = "i am const char ptr";
     int intVar = 10;

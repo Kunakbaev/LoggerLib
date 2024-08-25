@@ -4,3 +4,75 @@ DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main               
 INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-25 15:16:17:049   ->   i am log info
 WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-25 15:16:17:049   ->   i am log warn
 ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-25 15:16:17:049   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 101  at 2024-08-25 15:35:04:278   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 18   at 2024-08-25 15:35:04:278   ->   [constCharPtrVar : i am const char ptr] [intVar : 10] [boolVar : 1] [file : ?] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-25 15:35:04:278   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-25 15:35:04:278   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-25 15:35:04:278   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-25 15:35:04:278   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 101  at 2024-08-25 15:35:17:910   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 18   at 2024-08-25 15:35:17:910   ->   [constCharPtrVar : i am const char ptr] [intVar : 10] [boolVar : 1] [file : ?] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-25 15:35:17:910   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-25 15:35:17:910   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-25 15:35:17:910   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-25 15:35:17:910   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 101  at 2024-08-25 15:35:30:566   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 18   at 2024-08-25 15:35:30:566   ->   [constCharPtrVar : i am const char ptr] [intVar : 10] [boolVar : 1] [file : ?] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-25 15:35:30:566   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-25 15:35:30:566   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-25 15:35:30:566   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-25 15:35:30:566   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 101  at 2024-08-25 15:35:35:349   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 18   at 2024-08-25 15:35:35:349   ->   [constCharPtrVar : i am const char ptr] [intVar : 10] [boolVar : 1] [file : ?] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-25 15:35:35:349   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-25 15:35:35:349   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-25 15:35:35:349   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-25 15:35:35:349   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 101  at 2024-08-25 15:35:39:299   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 18   at 2024-08-25 15:35:39:299   ->   [constCharPtrVar : i am const char ptr] [intVar : 10] [boolVar : 1] [file : ?] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-25 15:35:39:299   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-25 15:35:39:299   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-25 15:35:39:299   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-25 15:35:39:299   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 101  at 2024-08-25 15:35:47:590   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 18   at 2024-08-25 15:35:47:590   ->   [constCharPtrVar : i am const char ptr] [intVar : 10] [boolVar : 1] [file : ?] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-25 15:35:47:590   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-25 15:35:47:590   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-25 15:35:47:590   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-25 15:35:47:590   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 102  at 2024-08-25 15:36:23:473   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 18   at 2024-08-25 15:36:23:473   ->   [constCharPtrVar : i am const char ptr] [intVar : 10] [boolVar : 1] [file : ?] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-25 15:36:23:473   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-25 15:36:23:473   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-25 15:36:23:473   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-25 15:36:23:473   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 102  at 2024-08-25 15:36:31:200   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 18   at 2024-08-25 15:36:31:200   ->   [constCharPtrVar : i am const char ptr] [intVar : 10] [boolVar : 1] [file : ?] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-25 15:36:31:200   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-25 15:36:31:200   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-25 15:36:31:200   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-25 15:36:31:200   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 113  at 2024-08-25 15:42:38:986   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 18   at 2024-08-25 15:42:38:986   ->   [constCharPtrVar : i am const char ptr] [intVar : 10] [boolVar : 1] [file : ?] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-25 15:42:38:986   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-25 15:42:38:986   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-25 15:42:38:986   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-25 15:42:38:986   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 113  at 2024-08-25 17:13:25:793   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 18   at 2024-08-25 17:13:25:793   ->   [constCharPtrVar : i am const char ptr] [intVar : 10] [boolVar : 1] [file : ?] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-25 17:13:25:793   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-25 17:13:25:793   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-25 17:13:25:793   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-25 17:13:25:793   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 114  at 2024-08-25 17:14:27:047   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 18   at 2024-08-25 17:14:27:047   ->   [constCharPtrVar : i am const char ptr] [intVar : 10] [boolVar : 1] [file : ?] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-25 17:14:27:047   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-25 17:14:27:047   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-25 17:14:27:047   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-25 17:14:27:047   ->   i am log error
+INFO    from File: uments/Work/LoggerLib/logLib.c, Function: stateLogFile        , Line: 114  at 2024-08-25 17:17:24:180   ->   New logging session started
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 18   at 2024-08-25 17:17:24:180   ->   [constCharPtrVar : i am const char ptr] [intVar : 10] [boolVar : 1] [file : ?] 
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-25 17:17:24:180   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-25 17:17:24:180   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-25 17:17:24:180   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-25 17:17:24:180   ->   i am log error

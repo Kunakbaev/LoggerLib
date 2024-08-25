@@ -36,6 +36,8 @@ const char* getLogMessage(enum Levels level);
 
 enum Colors getTextColorForLevel(enum Levels level);
 
+bool isGoodLogLevel(enum Levels level, int no_debug, int no_info, int no_warning, int no_error);
+
 void setLoggingLevel(enum Levels level);
 
 enum Levels getLoggingLevel();
@@ -50,15 +52,39 @@ FILE* getLogFile();
 
 void destructLogger();
 
-
-#ifdef NO_LOG_INFO
-#define NO_INFO
+#ifdef NO_LOG_DEBUG
+#define NO_DEBUG 1
+#else
+#define NO_DEBUG 0
 #endif
 
-#define DEBUG(...)                          \
-do {                                                    \
+#ifdef NO_LOG_INFO
+#define NO_INFO 1
+#else
+#define NO_INFO 0
+#endif
+
+#ifdef NO_LOG_WARNING
+#define NO_WARNING 1
+#else
+#define NO_WARNING 0
+#endif
+
+#ifdef NO_LOG_ERROR
+#define NO_ERROR 1
+#else
+#define NO_ERROR 0
+#endif
+
+
+
+
+
+#define DEBUG(...)                                                                              \
+do {                                                                                            \
     assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                                  \
-    if (getLoggingLevel() == DEBUG) {                                                           \
+    if (getLoggingLevel() == DEBUG && !NO_DEBUG) {                                              \
+        printf("no info: %d\n", NO_INFO);                                               \
         changeTextColor(getTextColorForLevel(DEBUG));                                           \
         FILE* logFile = getLogFile();                                                           \
         bool isTransferToFile = !isatty(STDOUT_FILENO);                                         \
@@ -78,7 +104,7 @@ do {                                                    \
 #define LOG_MESSAGE(level, ...)                                                                     \
     do {                                                                                            \
         assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                                  \
-        if (level >= getLoggingLevel()) {                                                           \
+        if (isGoodLogLevel(level, NO_DEBUG, NO_INFO, NO_WARNING, NO_ERROR)) {                                                           \
             changeTextColor(getTextColorForLevel(level));                                           \
             FILE* logFile = getLogFile();                                                           \
             bool isTransferToFile = !isatty(STDOUT_FILENO);                                         \

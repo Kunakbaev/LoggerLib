@@ -20,25 +20,38 @@ FILE* logFile = NULL;
 
 const char* getLogMessage(enum Levels level) {
     switch (level) {
-        case DEBUG:   return "DEBUG";
-        case INFO:    return "INFO";
-        case WARNING: return "WARNING";
-        case ERROR:   return "ERROR";
-        default:      return "INFO";
+        case DEBUG  :    return "DEBUG";
+        case INFO   :    return "INFO";
+        case WARNING:    return "WARNING";
+        case ERROR  :    return "ERROR";
+        default     :    return "INFO";
     }
 }
 
 enum Colors getTextColorForLevel(enum Levels level) {
     switch (level) {
-        case DEBUG:   return GREEN_COLOR;
-        case INFO:    return WHITE_COLOR;
-        case WARNING: return YELLOW_COLOR;
-        case ERROR:   return RED_COLOR;
-        default:      return WHITE_COLOR;
+        case DEBUG  :    return GREEN_COLOR;
+        case INFO   :    return WHITE_COLOR;
+        case WARNING:    return YELLOW_COLOR;
+        case ERROR  :    return RED_COLOR;
+        default     :    return WHITE_COLOR;
+    }
+}
+
+bool isGoodLogLevel(enum Levels level, int no_debug, int no_info, int no_warning, int no_error) {
+    if (level < getLoggingLevel()) return false;
+    // printf("macroses : %d, %d, %d, %d\n", no_debug, no_info, no_warning, no_error);
+    switch (level) {
+        case DEBUG  :    return !no_debug;
+        case INFO   :    return !no_info;
+        case WARNING:    return !no_warning;
+        case ERROR  :    return !no_error;
+        default     :    return false;
     }
 }
 
 void setLoggingLevel(enum Levels level) {
+    printf("no longgg info : %d\n", NO_INFO);
     loggingLevel = level;
 }
 
@@ -73,14 +86,6 @@ const char* getLoggingMessage(enum Levels level, const char* fileName, const cha
     const char* currentTime = getCurrentTimeFormatted();
     const char* logMessage = getLogMessage(level);
 
-
-// #ifdef NO_INFO
-//     printf("no log info\n");
-// #else
-//     printf("log info\n");
-// #endif
-
-    // sprintf(buffer, "%s", currentTime);
     sprintf(buffer, "%-7s from File: %-30.30s, Function: %-20.20s, Line: %-4d at %s   ->   ",
             logMessage, fileName + getTrimDx(fileName, 30),
             funcName + getTrimDx(funcName, 20), line, currentTime);
@@ -93,7 +98,6 @@ void stateLogFile(const char* logFileName) {
     // we want to add to file, not to clear it every time we relaunch our app
     logFile = fopen(logFileName, "a");
     if (logFile == NULL) {
-        // assert(false);
         printError("%s", FILE_OPENING_ERROR);
     }
 
