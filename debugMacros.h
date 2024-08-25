@@ -1,17 +1,11 @@
-#define _GET_NTH_ARG(_1, _2, _3, _4, _5, _6, N, ...) N
-
-#define _fe_0(_call, x, ...)
-#define _fe_1(_call, x, ...) _call(x)
-#define _fe_2(_call, x, ...) _call(x) _fe_1(_call, __VA_ARGS__)
-#define _fe_3(_call, x, ...) _call(x) _fe_2(_call, __VA_ARGS__)
-#define _fe_3(_call, x, ...) _call(x) _fe_2(_call, __VA_ARGS__)
-#define _fe_4(_call, x, ...) _call(x) _fe_3(_call, __VA_ARGS__)
-#define _fe_5(_call, x, ...) _call(x) _fe_4(_call, __VA_ARGS__)
-
-enum TYPES {
-    CHAR_TYPE, CHAR_PTR_TYPE, CONST_CHAR_PTR_TYPE,
+enum DataTypes {
+    CHAR_TYPE,
+    CHAR_PTR_TYPE,
+    CONST_CHAR_PTR_TYPE,
     INT_TYPE, INT_PTR_TYPE,
-    FLOAT_TYPE, DOUBLE_TYPE, LONG_DOUBLE_TYPE,
+    FLOAT_TYPE,
+    DOUBLE_TYPE,
+    LONG_DOUBLE_TYPE,
     BOOL_TYPE,
     VOID_PTR_TYPE,
     UNKNOWN_TYPE,
@@ -35,101 +29,44 @@ signed char: "signed char",            \
            void *: VOID_PTR_TYPE,                  int *: INT_PTR_TYPE,         \
           default: UNKNOWN_TYPE)
 
-#define OUTPUT_VARIABLE(x)                       \
-    do {                                         \
-        printf("[%s : ", #x);                    \
-        enum TYPES type = typename(x);           \
-        switch (type) {                          \
-            case CHAR_TYPE:                      \
-                printf("%c", x);                 \
-                break;                           \
-            case CHAR_PTR_TYPE:                  \
-                printf("%s", x);                 \
-                break;                           \
-            case CONST_CHAR_PTR_TYPE:            \
-                printf("%s", x);                 \
-                break;                           \
-            case INT_TYPE: case BOOL_TYPE:       \
-                printf("%d", x);                 \
-                break;                           \
-            case FLOAT_TYPE:                     \
-                printf("%g", x);                 \
-                break;                           \
-            case DOUBLE_TYPE:                    \
-                printf("%g", x);                 \
-                break;                           \
-            case LONG_DOUBLE_TYPE:               \
-                printf("%Lg", x);                \
-                break;                           \
-            default:                             \
-                printf("?");                     \
-                break;                           \
-        };                                       \
-        printf("] ");                            \
+#define _fe_0(_stream, _call, x, ...)
+#define _fe_1(_stream, _call, x, ...) _call(_stream, x)
+#define _fe_2(_stream, _call, x, ...) _call(_stream, x) _fe_1(_stream, _call, __VA_ARGS__)
+#define _fe_3(_stream, _call, x, ...) _call(_stream, x) _fe_2(_stream, _call, __VA_ARGS__)
+#define _fe_3(_stream, _call, x, ...) _call(_stream, x) _fe_2(_stream, _call, __VA_ARGS__)
+#define _fe_4(_stream, _call, x, ...) _call(_stream, x) _fe_3(_stream, _call, __VA_ARGS__)
+#define _fe_5(_stream, _call, x, ...) _call(_stream, x) _fe_4(_stream, _call, __VA_ARGS__)
+
+#define OUTPUT_VARIABLE_TO_STREAM(stream, x)                                    \
+    do {                                                                        \
+        fprintf(stream, "[%s : ", #x);                                          \
+        enum DataTypes type = typename(x);                                      \
+        const char* format = "";                                                \
+        switch (type) {                                                         \
+            case CHAR_TYPE:             format = "%c";      break;              \
+            case CHAR_PTR_TYPE:                                                 \
+            case CONST_CHAR_PTR_TYPE:   format = "%s";      break;              \
+            case INT_TYPE:                                                      \
+            case BOOL_TYPE:             format = "%d";      break;              \
+            case FLOAT_TYPE:                                                    \
+            case DOUBLE_TYPE:           format = "%g";      break;              \
+            case LONG_DOUBLE_TYPE:      format = "%Lg";     break;              \
+            default:                    format = "?";       break;              \
+        };                                                                      \
+        fprintf(stream, format, x);                                             \
+        fprintf(stream, "] ");                                                  \
     } while (0);
 
-#define DBG(...)                                                                            \
-    do {                                                                                    \
-        _GET_NTH_ARG("ignored", ##__VA_ARGS__, _fe_5, _fe_4, _fe_3, _fe_2, _fe_1, _fe_0)    \
-        (OUTPUT_VARIABLE, ##__VA_ARGS__);                                                   \
-        printf("\n");                                                                       \
+
+
+#define _GET_NTH_ARG(_1, _2, _3, _4, _5, _6, N, ...) N
+
+#define DBG_TO_STREAM(stream, ...)                                              \
+    do {                                                                        \
+        _GET_NTH_ARG("ignored", ##__VA_ARGS__, _fe_5, _fe_4,                    \
+            _fe_3, _fe_2, _fe_1, _fe_0)                                         \
+        (stream, OUTPUT_VARIABLE_TO_STREAM, ##__VA_ARGS__);                     \
+        fprintf(stream, "\n");                                                  \
     } while (0)
 
-
-
-
-
-
-
-
-
-// ---------------------------------        SAME MACROS BUT FOR THE STREAM (FILE, STDERR, STDOUT)       ------------------------------------------
-
-#define _fe_0_stream(_stream, _call, x, ...)
-#define _fe_1_stream(_stream, _call, x, ...) _call(_stream, x)
-#define _fe_2_stream(_stream, _call, x, ...) _call(_stream, x) _fe_1_stream(_stream, _call, __VA_ARGS__)
-#define _fe_3_stream(_stream, _call, x, ...) _call(_stream, x) _fe_2_stream(_stream, _call, __VA_ARGS__)
-#define _fe_3_stream(_stream, _call, x, ...) _call(_stream, x) _fe_2_stream(_stream, _call, __VA_ARGS__)
-#define _fe_4_stream(_stream, _call, x, ...) _call(_stream, x) _fe_3_stream(_stream, _call, __VA_ARGS__)
-#define _fe_5_stream(_stream, _call, x, ...) _call(_stream, x) _fe_4_stream(_stream, _call, __VA_ARGS__)
-
-#define OUTPUT_VARIABLE_TO_STREAM(stream, x)          \
-    do {                                                  \
-        fprintf(stream, "[%s : ", #x);                    \
-        enum TYPES type = typename(x);                    \
-        switch (type) {                                   \
-            case CHAR_TYPE:                               \
-                fprintf(stream, "%c", x);                 \
-                break;                                    \
-            case CHAR_PTR_TYPE:                           \
-                fprintf(stream, "%s", x);                 \
-                break;                                    \
-            case CONST_CHAR_PTR_TYPE:                     \
-                fprintf(stream, "%s", x);                 \
-                break;                                    \
-            case INT_TYPE: case BOOL_TYPE:                \
-                fprintf(stream, "%d", x);                 \
-                break;                                    \
-            case FLOAT_TYPE:                              \
-                fprintf(stream, "%g", x);                 \
-                break;                                    \
-            case DOUBLE_TYPE:                             \
-                fprintf(stream, "%g", x);                 \
-                break;                                    \
-            case LONG_DOUBLE_TYPE:                        \
-                fprintf(stream, "%Lg", x);                \
-                break;                                    \
-            default:                                      \
-                fprintf(stream, "?");                     \
-                break;                                    \
-        };                                                \
-        fprintf(stream, "] ");                            \
-    } while (0);
-
-#define DBG_TO_STREAM(stream, ...)                                                          \
-    do {                                                                                    \
-        _GET_NTH_ARG("ignored", ##__VA_ARGS__, _fe_5_stream, _fe_4_stream,                  \
-            _fe_3_stream, _fe_2_stream, _fe_1_stream, _fe_0_stream)                         \
-        (stream, OUTPUT_VARIABLE_TO_STREAM, ##__VA_ARGS__);                                 \
-        fprintf(stream, "\n");                                                              \
-    } while (0)
+#define DBG(...) DBG_TO_STREAM(stderr, __VA_ARGS__)

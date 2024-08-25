@@ -1,15 +1,5 @@
-INFO    from File: ents/Work/LoggerLib/logLib.cpp, Function: stateLogFile        , Line: 91   at 2024-08-24 19:32:05:854   ->   New logging session started
-DEBUG   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 11   at 2024-08-24 19:32:05:854   ->   i am log debug
-INFO    from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 12   at 2024-08-24 19:32:05:854   ->   i am log info
-WARNING from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 13   at 2024-08-24 19:32:05:854   ->   i am log warn
-ERROR   from File: uments/Work/LoggerLib/main.cpp, Function: main                , Line: 14   at 2024-08-24 19:32:05:854   ->   i am log error
-is transfer : 1
-file 0
-is transfer : 1
-file 0
-is transfer : 1
-file 0
-is transfer : 1
-file 0
-is transfer : 1
-file 0
+DEBUG   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 22   at 2024-08-24 23:31:26:433   ->   i am log debug
+INFO    from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 23   at 2024-08-24 23:31:26:433   ->   i am log info
+WARNING from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 24   at 2024-08-24 23:31:26:433   ->   i am log warn
+ERROR   from File: ocuments/Work/LoggerLib/main.c, Function: main                , Line: 25   at 2024-08-24 23:31:26:433   ->   i am log error
+[intVar : 10] [constCharPtrVar : i am const char ptr] [intVar : 10] [longDoubleVar : 3.14159] [file : ?] 

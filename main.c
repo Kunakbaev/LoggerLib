@@ -8,7 +8,7 @@
 
 int main() {
     setLoggingLevel(DEBUG);
-    stateLogFile("logFile.txt");
+    //stateLogFile("logFile.txt");
 
     const char* constCharPtrVar = "i am const char ptr";
     int intVar = 10;
