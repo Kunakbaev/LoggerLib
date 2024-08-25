@@ -16,7 +16,7 @@ static char timeBuffer[30] = {};
 static char buffer[256] = {};
 
 static enum Levels loggingLevel = INFO;
-static FILE* logFile = NULL;
+FILE* logFile = NULL;
 
 const char* getLogMessage(enum Levels level) {
     switch (level) {

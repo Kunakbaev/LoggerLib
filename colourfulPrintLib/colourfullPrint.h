@@ -1,9 +1,8 @@
 #ifndef _COLOURFULL_PRINT_HEADER_
 #define _COLOURFULL_PRINT_HEADER_
 
-#ifndef printf
-    #include <stdio.h>
-#endif
+#include <stdio.h>
+#include "../debugMacros.h"
 
 // bold:
 // char* const RED_COLOR[2] = {"\033[1;31m", "\033[0m"};
@@ -46,34 +45,29 @@ enum Colors getCurrentColor();
 */
 
 /// @brief prints in stderror but with red color
-#define colourfullDebugToStream(stream, ...)               \
-    do {                                                   \
-        fprintf(stream, "%s", getColor(getCurrentColor())); \
-        fprintf(stream, __VA_ARGS__);                      \
-        fprintf(stream, "%s", getColor(BASE_COLOR));       \
+#define colourfullDebugToStream(stream, ...)                \
+    do {                                                    \
+        fprintf(stream, "%s", getColor(GREEN_COLOR));       \
+        DBG_TO_STREAM(stream, __VA_ARGS__);                 \
+        fprintf(stream, "%s", getColor(BASE_COLOR));        \
     } while(0)
 
 /// @brief prints in stderror but with red color
-#define colourfullPrintToStream(stream, ...)               \
-    do {                                                   \
+#define colourfullPrintToStream(stream, ...)                \
+    do {                                                    \
         fprintf(stream, "%s", getColor(getCurrentColor())); \
-        fprintf(stream, __VA_ARGS__);                      \
-        fprintf(stream, "%s", getColor(BASE_COLOR));       \
+        fprintf(stream, __VA_ARGS__);                       \
+        fprintf(stream, "%s", getColor(BASE_COLOR));        \
     } while(0)
 
-#define colourfullPrint(...)                             \
-    do {                                                 \
-        printf("%s", getColor(getCurrentColor()));       \
-        printf(__VA_ARGS__);                             \
-        printf("%s", getColor(BASE_COLOR));              \
-    } while(0)
+#define colourfullPrint(...) colourfullPrintToStream(stdin, __VA_ARGS__)
 
 /// @brief prints in stderror but with red color
-#define printError(...)                                  \
-    do {                                                 \
-        fprintf(stderr, "%s", getColor(RED_COLOR));      \
-        fprintf(stderr, __VA_ARGS__);                    \
-        fprintf(stderr, "%s", getColor(BASE_COLOR));     \
+#define printError(...)                                     \
+    do {                                                    \
+        fprintf(stderr, "%s", getColor(RED_COLOR));         \
+        fprintf(stderr, __VA_ARGS__);                       \
+        fprintf(stderr, "%s", getColor(BASE_COLOR));        \
     } while(0)
 
 #endif

@@ -8,14 +8,14 @@
 
 int main() {
     setLoggingLevel(DEBUG);
-    //stateLogFile("logFile.txt");
+    stateLogFile("logFile.txt");
 
     const char* constCharPtrVar = "i am const char ptr";
     int intVar = 10;
     bool boolVar = true;
     long double longDoubleVar = 3.141592;
     FILE* file = getLogFile(); // for file it will output ?, unknown type
-    DBG(intVar, constCharPtrVar, intVar, longDoubleVar, file);
+    DEBUG(constCharPtrVar, intVar, boolVar, file);
 
     enum Levels lo = DEBUG;
 

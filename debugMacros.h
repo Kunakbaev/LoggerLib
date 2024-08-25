@@ -1,3 +1,6 @@
+#ifndef DEBUG_MACROS_LIB
+#define DEBUG_MACROS_LIB
+
 enum DataTypes {
     CHAR_TYPE,
     CHAR_PTR_TYPE,
@@ -70,3 +73,6 @@ signed char: "signed char",            \
     } while (0)
 
 #define DBG(...) DBG_TO_STREAM(stderr, __VA_ARGS__)
+
+
+#endif

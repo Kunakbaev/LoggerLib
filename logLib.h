@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 
+#include "debugMacros.h"
 #include "colourfulPrintLib/colourfullPrint.h"
 
 
@@ -54,6 +55,26 @@ void destructLogger();
 #define NO_INFO
 #endif
 
+#define DEBUG(...)                          \
+do {                                                    \
+    assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                                  \
+    if (getLoggingLevel() == DEBUG) {                                                           \
+        changeTextColor(getTextColorForLevel(DEBUG));                                           \
+        FILE* logFile = getLogFile();                                                           \
+        bool isTransferToFile = !isatty(STDOUT_FILENO);                                         \
+        FILE* stream = (logFile == NULL || isTransferToFile) ? stderr : logFile;                \
+                                                                                                \
+        const char* logMessage = getLoggingMessage(DEBUG, __FILE__, __FUNCTION__, __LINE__);    \
+        if (isTransferToFile || logFile != NULL) {                                              \
+            fprintf(stream, "%s", logMessage);                                                  \
+            DBG_TO_STREAM(stream, __VA_ARGS__);                                                 \
+        } else {                                                                                \
+            colourfullPrintToStream(stream, "%s", logMessage);                                  \
+            colourfullDebugToStream(stream, __VA_ARGS__);                                       \
+        }                                                                                       \
+    }                                                                                           \
+} while (0)
+
 #define LOG_MESSAGE(level, ...)                                                                     \
     do {                                                                                            \
         assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                                  \
@@ -63,13 +84,13 @@ void destructLogger();
             bool isTransferToFile = !isatty(STDOUT_FILENO);                                         \
             FILE* stream = (logFile == NULL || isTransferToFile) ? stderr : logFile;                \
                                                                                                     \
+            const char* logMessage = getLoggingMessage(level, __FILE__, __FUNCTION__, __LINE__);    \
             if (isTransferToFile || logFile != NULL) {                                              \
-                fprintf(stream, "%s", getLoggingMessage(level, __FILE__, __FUNCTION__, __LINE__));  \
+                fprintf(stream, "%s", logMessage);                                                  \
                 fprintf(stream, __VA_ARGS__);                                                       \
             } else {                                                                                \
-                colourfullPrintToStream(stderr, "%s",                                               \
-                getLoggingMessage(level, __FILE__, __FUNCTION__, __LINE__));                        \
-                colourfullPrintToStream(stderr, __VA_ARGS__);                                       \
+                colourfullPrintToStream(stream, "%s", logMessage);                                  \
+                colourfullPrintToStream(stream, __VA_ARGS__);                                       \
             }                                                                                       \
         }                                                                                           \
     } while (0);
