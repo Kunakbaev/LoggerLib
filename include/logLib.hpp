@@ -80,44 +80,45 @@ void destructLogger();
 
 #ifndef NO_LOG
 
-    #define LOG_MESSAGE(level, ...)                                                                 \
-        do {                                                                                        \
-            assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                              \
-            if (level >= getLoggingLevel()) {                                                        \
+    #define LOG_MESSAGE(level, ...)                                                                             \
+        do {                                                                                                    \
+            assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                                          \
+            if (level >= getLoggingLevel()) {                                                                   \
                 changeTextColor(getTextColorForLevel(level));                                                   \
                 FILE* logFile = getLogFile();                                                                   \
-                bool isTransferToFile = !isatty(STDOUT_FILENO);                                                 \
+                bool isTransferToFile = !isatty(STDOUT_FILENO) || !isatty(STDERR_FILENO);                       \
+                printf("isTransfer : %d\n", isTransferToFile);                                                  \
                 FILE* stream = (logFile == NULL || isTransferToFile) ? stderr : logFile;                        \
                                                                                                                 \
                 const char* logMessage = getLoggingMessage(level, __FILE__, __FUNCTION__, __LINE__);            \
                 if (isTransferToFile || logFile != NULL) {                                                      \
                     fprintf(stream, "%s", logMessage);                                                          \
-                    fprintf(stream, __VA_ARGS__);                                                           \
+                    fprintf(stream, __VA_ARGS__);                                                               \
                 } else {                                                                                        \
                     colourfullPrintToStream(stream, "%s", logMessage);                                          \
-                    colourfullPrintToStream(stream, __VA_ARGS__);                                           \
+                    colourfullPrintToStream(stream, __VA_ARGS__);                                               \
                 }                                                                                               \
-            } \
+            }                                                                                                   \
         } while (0)
 
-    #define DEBUG_(...)                                                                 \
-        do {                                                                                        \
-            assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                              \
-            if (getLoggingLevel() == DEBUG) {                                                        \
+    #define DEBUG_(...)                                                                                         \
+        do {                                                                                                    \
+            assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                                          \
+            if (getLoggingLevel() == DEBUG) {                                                                   \
                 changeTextColor(getTextColorForLevel(DEBUG));                                                   \
                 FILE* logFile = getLogFile();                                                                   \
-                bool isTransferToFile = !isatty(STDOUT_FILENO);                                                 \
+                bool isTransferToFile = !isatty(STDOUT_FILENO) || !isatty(STDERR_FILENO);                       \
                 FILE* stream = (logFile == NULL || isTransferToFile) ? stderr : logFile;                        \
                                                                                                                 \
                 const char* logMessage = getLoggingMessage(DEBUG, __FILE__, __FUNCTION__, __LINE__);            \
                 if (isTransferToFile || logFile != NULL) {                                                      \
                     fprintf(stream, "%s", logMessage);                                                          \
-                    DBG_TO_STREAM(stream, __VA_ARGS__);                                                           \
+                    DBG_TO_STREAM(stream, __VA_ARGS__);                                                         \
                 } else {                                                                                        \
                     colourfullPrintToStream(stream, "%s", logMessage);                                          \
-                    colourfullDebugToStream(stream, __VA_ARGS__);\
+                    colourfullDebugToStream(stream, __VA_ARGS__);                                               \
                 }                                                                                               \
-            } \
+            }                                                                                                   \
         } while (0)
 #else
     #define DEBUG_(...)             (void)(0)
@@ -138,7 +139,7 @@ void destructLogger();
     //     do {                                                                                        \
     //         assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                              \
     //         if (level >= getLoggingLevel())                                                         \
-    //             DO_STUFF(false, level, __VA_ARGS__);                                                       \
+    //             DO_STUFF(false, level, __VA_ARGS__);                                                \
     //     } while (0)
 // #else
 //     #define DEBUG_(...)             (void)(0)
