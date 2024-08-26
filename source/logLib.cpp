@@ -13,7 +13,8 @@
 const char* FILE_OPENING_ERROR = "Error: couldn't open file\n";
 
 static char timeBuffer[30] = {};
-static char buffer[256] = {};
+static char tmpBuffer[256] = {};
+static char buffer[256]    = {};
 
 static enum Levels loggingLevel = INFO;
 static FILE* logFile = NULL;
@@ -73,9 +74,15 @@ const char* getLoggingMessage(enum Levels level, const char* fileName, const cha
     const char* currentTime = getCurrentTimeFormatted();
     const char* logMessage = getLogMessage(level);
 
-    sprintf(buffer, "%-7s from File: %-30.30s, Function: %-20.20s, Line: %-4d at %s   ->   ",
-            logMessage, fileName + getTrimDx(fileName, 30),
-            funcName + getTrimDx(funcName, 20), line, currentTime);
+    //2024-08-26 16:40:51:557 | source/main.cpp:main(38):
+    sprintf(tmpBuffer, "%s | %s:%s:(%d)", currentTime,
+        fileName + getTrimDx(fileName, 30),
+        funcName + getTrimDx(funcName, 20), line
+    );
+    sprintf(buffer, "%-80s%-7s:    ", tmpBuffer, logMessage);
+    // sprintf(buffer, "%-7s from File: %-30.30s, Function: %-20.20s, Line: %-4d at %s   ->   ",
+    //         logMessage, fileName + getTrimDx(fileName, 30),
+    //         funcName + getTrimDx(funcName, 20), line, currentTime);
     return buffer;
 }
 

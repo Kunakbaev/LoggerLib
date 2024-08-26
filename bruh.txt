@@ -1,0 +1,7 @@
+INFO    from File: k/LoggerLib/source/example.cpp, Function: main                , Line: 13   at 2024-08-26 16:57:43:385   ->   function with name: main started
+INFO    from File: k/LoggerLib/source/example.cpp, Function: main                , Line: 14   at 2024-08-26 16:57:43:386   ->   function with name: main finished
+DEBUG   from File: k/LoggerLib/source/example.cpp, Function: main                , Line: 21   at 2024-08-26 16:57:43:386   ->   [constCharPtrVar : i am const char ptr] [longDoubleVar : 3.14159] [boolVar : 1] [file : (nil)]
+DEBUG   from File: k/LoggerLib/source/example.cpp, Function: main                , Line: 24   at 2024-08-26 16:57:43:386   ->   i am log debug
+INFO    from File: k/LoggerLib/source/example.cpp, Function: main                , Line: 25   at 2024-08-26 16:57:43:386   ->   i am log info
+WARNING from File: k/LoggerLib/source/example.cpp, Function: main                , Line: 26   at 2024-08-26 16:57:43:386   ->   i am log warn
+ERROR   from File: k/LoggerLib/source/example.cpp, Function: main                , Line: 27   at 2024-08-26 16:57:43:386   ->   i am log error

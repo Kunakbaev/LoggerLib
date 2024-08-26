@@ -49,7 +49,7 @@ const char* format = varToFormat(x);                                    \
         fprintf(stream, "\n");                                                  \
     } while (0)
 
-#define DBG(...) DBG_TO_STREAM(stderr, __VA_ARGS__)
+#define DBG(...) DBG_TO_STREAM(stderr, ##__VA_ARGS__)
 
 
 #endif

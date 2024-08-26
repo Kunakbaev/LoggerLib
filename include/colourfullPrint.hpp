@@ -46,30 +46,28 @@ enum Colors getCurrentColor();
 */
 
 /// @brief prints in stderror but with red color
-#define colourfullDebugToStream(stream, ...)                \
-    do {                                                    \
-        fprintf(stream, "%s", getColor(GREEN_COLOR));       \
-        DBG_TO_STREAM(stream, __VA_ARGS__);                 \
-        fprintf(stream, "%s", getColor(BASE_COLOR));        \
+#define doStuff(stream, color, func, ...)                                   \
+    do {                                                                    \
+        fprintf(stream, "%s", getColor(color));                             \
+        func(stream, __VA_ARGS__);                                          \
+        fprintf(stream, "%s", getColor(BASE_COLOR));                        \
     } while(0)
 
-// fixme: COPYPASTE
-/// @brief prints in stderror but with red color
-#define doStuff(stream, color, ...)                         \
-    do {                                                    \
-        fprintf(stream, "%s", getColor(color));             \
-        fprintf(stream, __VA_ARGS__);                       \
-        fprintf(stream, "%s", getColor(BASE_COLOR));        \
-    } while(0)
+#define colourfullDebugToStream(stream, ...)                                \
+do {                                                                        \
+    doStuff(stream, GREEN_COLOR, DBG_TO_STREAM, __VA_ARGS__);               \
+} while (0)
 
-// fixme: COPYPASTE
 /// @brief prints in stderror but with red color
-#define colourfullPrintToStream(stream, ...) doStuff(stream, getCurrentColor(), __VA_ARGS__)
+#define colourfullPrintToStream(stream, ...)                                \
+do {                                                                        \
+    doStuff(stream, getCurrentColor(), fprintf, __VA_ARGS__);               \
+} while (0)
 
 #define colourfullPrint(...) colourfullPrintToStream(stdout, __VA_ARGS__)
 
 /// @brief prints in stdout but with red color
-#define printError(...) doStuff(stdout, RED_COLOR, __VA_ARGS__)
+#define printError(...) doStuff(stdout, RED_COLOR, fprintf, __VA_ARGS__)
 
 #endif
 
