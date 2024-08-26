@@ -54,7 +54,7 @@ void destructLogger();
 do {                                                                                                \
     changeTextColor(getTextColorForLevel(level));                                                   \
     FILE* logFile = getLogFile();                                                                   \
-    bool isTransferToFile = !isatty(STDOUT_FILENO);                                                 \
+    bool isTransferToFile = !isatty(STDERR_FILENO);                                                 \
     FILE* stream = (logFile == NULL || isTransferToFile) ? stderr : logFile;                        \
                                                                                                     \
     const char* logMessage = getLoggingMessage(level, __FILE__, __FUNCTION__, __LINE__);            \
@@ -85,6 +85,7 @@ do {                                                                            
     #define DEBUG_(...)             (void)(0)
     #define LOG_MESSAGE(level, ...) (void)(0)
 #endif
+
 
 
 
