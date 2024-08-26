@@ -17,11 +17,11 @@
 // };
 
 const char* varToFormat(char);
-const char* varToFormat(int);
 const char* varToFormat(void*);
 const char* varToFormat(bool);
 const char* varToFormat(char*);
 const char* varToFormat(const char*);
+const char* varToFormat(int);
 
 #define OUTPUT_VARIABLE_TO_STREAM(stream, x)                                    \
     do {                                                                        \

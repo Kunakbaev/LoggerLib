@@ -11,7 +11,8 @@ int main() {
     //stateLogFile("logFile.txt");
 
     int a = 10;
-    DEBUG_(a);
+    bool f = false;
+    DEBUG_(f);
 
     printf("bruh\n");
     LOG_FUNC_STARTED();
