@@ -7,16 +7,16 @@
 #include <ctype.h>
 #include <stdbool.h>
 
-#include "colourfulPrintLib/colourfullPrint.h"
-#include "logLib.h"
+#include "../include/colourfullPrint.hpp"
+#include "../include/logLib.hpp"
 
-static const char* FILE_OPENING_ERROR = "Error: couldn't open file\n";
+const char* FILE_OPENING_ERROR = "Error: couldn't open file\n";
 
 static char timeBuffer[30] = {};
 static char buffer[256] = {};
 
 static enum Levels loggingLevel = INFO;
-FILE* logFile = NULL;
+static FILE* logFile = NULL;
 
 const char* getLogMessage(enum Levels level) {
     switch (level) {
@@ -35,19 +35,6 @@ enum Colors getTextColorForLevel(enum Levels level) {
         case WARNING:    return YELLOW_COLOR;
         case ERROR  :    return RED_COLOR;
         default     :    return WHITE_COLOR;
-    }
-}
-
-bool isGoodLogLevel(enum Levels level, int no_log, int no_debug, int no_info, int no_warning, int no_error) {
-    if (level < getLoggingLevel()) return false;
-    if (no_log) return false;
-    // printf("macroses : %d, %d, %d, %d\n", no_debug, no_info, no_warning, no_error);
-    switch (level) {
-        case DEBUG  :    return !no_debug;
-        case INFO   :    return !no_info;
-        case WARNING:    return !no_warning;
-        case ERROR  :    return !no_error;
-        default     :    return false;
     }
 }
 

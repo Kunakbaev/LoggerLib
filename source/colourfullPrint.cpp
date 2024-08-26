@@ -1,4 +1,4 @@
-#include "./colourfullPrint.h"
+#include "../include/colourfullPrint.hpp"
 
 static enum Colors CURRENT_COLOR = RED_COLOR;
 

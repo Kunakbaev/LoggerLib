@@ -2,7 +2,7 @@
 #define _COLOURFULL_PRINT_HEADER_
 
 #include <stdio.h>
-#include "../debugMacros.h"
+#include "debugMacros.hpp"
 
 // bold:
 
@@ -53,23 +53,25 @@ enum Colors getCurrentColor();
         fprintf(stream, "%s", getColor(BASE_COLOR));        \
     } while(0)
 
+// fixme: COPYPASTE
 /// @brief prints in stderror but with red color
-#define colourfullPrintToStream(stream, ...)                \
+#define doStuff(stream, color, ...)                         \
     do {                                                    \
-        fprintf(stream, "%s", getColor(getCurrentColor())); \
+        fprintf(stream, "%s", getColor(color));             \
         fprintf(stream, __VA_ARGS__);                       \
         fprintf(stream, "%s", getColor(BASE_COLOR));        \
     } while(0)
 
+// fixme: COPYPASTE
+/// @brief prints in stderror but with red color
+#define colourfullPrintToStream(stream, ...)                \
+    doStuff(stream, getCurrentColor(), __VA_ARGS__)
+
 #define colourfullPrint(...) colourfullPrintToStream(stdout, __VA_ARGS__)
 
-/// @brief prints in stderror but with red color
+/// @brief prints in stdout but with red color
 #define printError(...)                                     \
-    do {                                                    \
-        fprintf(stderr, "%s", getColor(RED_COLOR));         \
-        fprintf(stderr, __VA_ARGS__);                       \
-        fprintf(stderr, "%s", getColor(BASE_COLOR));        \
-    } while(0)
+    doStuff(stdout, RED_COLOR, __VA_ARGS__)
 
 #endif
 
