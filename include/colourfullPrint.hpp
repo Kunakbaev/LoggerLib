@@ -64,14 +64,12 @@ enum Colors getCurrentColor();
 
 // fixme: COPYPASTE
 /// @brief prints in stderror but with red color
-#define colourfullPrintToStream(stream, ...)                \
-    doStuff(stream, getCurrentColor(), __VA_ARGS__)
+#define colourfullPrintToStream(stream, ...) doStuff(stream, getCurrentColor(), __VA_ARGS__)
 
 #define colourfullPrint(...) colourfullPrintToStream(stdout, __VA_ARGS__)
 
 /// @brief prints in stdout but with red color
-#define printError(...)                                     \
-    doStuff(stdout, RED_COLOR, __VA_ARGS__)
+#define printError(...) doStuff(stdout, RED_COLOR, __VA_ARGS__)
 
 #endif
 

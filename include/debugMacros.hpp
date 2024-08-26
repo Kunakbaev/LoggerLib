@@ -23,6 +23,13 @@ const char* varToFormat(char*);
 const char* varToFormat(const char*);
 const char* varToFormat(int);
 
+/*
+
+const char* format = varToFormat(x);                                    \
+        fprintf(stream, format, x);                                             \
+
+*/
+
 #define OUTPUT_VARIABLE_TO_STREAM(stream, x)                                    \
     do {                                                                        \
         fprintf(stream, "[%s : ", #x);                                          \
