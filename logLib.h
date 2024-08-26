@@ -36,7 +36,7 @@ const char* getLogMessage(enum Levels level);
 
 enum Colors getTextColorForLevel(enum Levels level);
 
-bool isGoodLogLevel(enum Levels level, int no_debug, int no_info, int no_warning, int no_error);
+bool isGoodLogLevel(enum Levels level, int no_logging, int no_debug, int no_info, int no_warning, int no_error);
 
 void setLoggingLevel(enum Levels level);
 
@@ -51,6 +51,12 @@ void stateLogFile(const char* logFileName);
 FILE* getLogFile();
 
 void destructLogger();
+
+#ifdef NO_LOG
+#define NO_LOGGING 1
+#else
+#define NO_LOGGING 0
+#endif
 
 #ifdef NO_LOG_DEBUG
 #define NO_DEBUG 1
@@ -80,31 +86,30 @@ void destructLogger();
 
 
 
-#define DEBUG(...)                                                                              \
-do {                                                                                            \
-    assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                                  \
-    if (getLoggingLevel() == DEBUG && !NO_DEBUG) {                                              \
-        printf("no info: %d\n", NO_INFO);                                               \
-        changeTextColor(getTextColorForLevel(DEBUG));                                           \
-        FILE* logFile = getLogFile();                                                           \
-        bool isTransferToFile = !isatty(STDOUT_FILENO);                                         \
-        FILE* stream = (logFile == NULL || isTransferToFile) ? stderr : logFile;                \
-                                                                                                \
-        const char* logMessage = getLoggingMessage(DEBUG, __FILE__, __FUNCTION__, __LINE__);    \
-        if (isTransferToFile || logFile != NULL) {                                              \
-            fprintf(stream, "%s", logMessage);                                                  \
-            DBG_TO_STREAM(stream, __VA_ARGS__);                                                 \
-        } else {                                                                                \
-            colourfullPrintToStream(stream, "%s", logMessage);                                  \
-            colourfullDebugToStream(stream, __VA_ARGS__);                                       \
-        }                                                                                       \
-    }                                                                                           \
+#define DEBUG(...)                                                                                  \
+do {                                                                                                \
+    assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                                      \
+    if (getLoggingLevel() == DEBUG && !NO_DEBUG && !NO_LOGGING) {                                   \
+        changeTextColor(getTextColorForLevel(DEBUG));                                               \
+        FILE* logFile = getLogFile();                                                               \
+        bool isTransferToFile = !isatty(STDOUT_FILENO);                                             \
+        FILE* stream = (logFile == NULL || isTransferToFile) ? stderr : logFile;                    \
+                                                                                                    \
+        const char* logMessage = getLoggingMessage(DEBUG, __FILE__, __FUNCTION__, __LINE__);        \
+        if (isTransferToFile || logFile != NULL) {                                                  \
+            fprintf(stream, "%s", logMessage);                                                      \
+            DBG_TO_STREAM(stream, __VA_ARGS__);                                                     \
+        } else {                                                                                    \
+            colourfullPrintToStream(stream, "%s", logMessage);                                      \
+            colourfullDebugToStream(stream, __VA_ARGS__);                                           \
+        }                                                                                           \
+    }                                                                                               \
 } while (0)
 
 #define LOG_MESSAGE(level, ...)                                                                     \
     do {                                                                                            \
         assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                                  \
-        if (isGoodLogLevel(level, NO_DEBUG, NO_INFO, NO_WARNING, NO_ERROR)) {                                                           \
+        if (isGoodLogLevel(level, NO_LOGGING, NO_DEBUG, NO_INFO, NO_WARNING, NO_ERROR)) {            \
             changeTextColor(getTextColorForLevel(level));                                           \
             FILE* logFile = getLogFile();                                                           \
             bool isTransferToFile = !isatty(STDOUT_FILENO);                                         \
@@ -128,5 +133,9 @@ do {                                                                            
 #define LOG_WARNING(...) LOG_MESSAGE(WARNING, __VA_ARGS__);
 
 #define LOG_ERROR(...) LOG_MESSAGE(ERROR, __VA_ARGS__);
+
+#define LOG_FUNC_STARTED() LOG_MESSAGE(INFO, "function with name: %s started\n", __FUNCTION__);
+
+#define LOG_FUNC_FINISHED() LOG_MESSAGE(INFO, "function with name: %s finished\n", __FUNCTION__);
 
 #endif

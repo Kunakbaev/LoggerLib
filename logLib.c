@@ -38,8 +38,9 @@ enum Colors getTextColorForLevel(enum Levels level) {
     }
 }
 
-bool isGoodLogLevel(enum Levels level, int no_debug, int no_info, int no_warning, int no_error) {
+bool isGoodLogLevel(enum Levels level, int no_log, int no_debug, int no_info, int no_warning, int no_error) {
     if (level < getLoggingLevel()) return false;
+    if (no_log) return false;
     // printf("macroses : %d, %d, %d, %d\n", no_debug, no_info, no_warning, no_error);
     switch (level) {
         case DEBUG  :    return !no_debug;
@@ -51,7 +52,6 @@ bool isGoodLogLevel(enum Levels level, int no_debug, int no_info, int no_warning
 }
 
 void setLoggingLevel(enum Levels level) {
-    printf("no longgg info : %d\n", NO_INFO);
     loggingLevel = level;
 }
 

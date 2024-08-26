@@ -5,6 +5,7 @@
 // #define NO_LOG_INFO
 // #define NO_LOG_WARNING
 // #define NO_LOG_ERROR
+// #define NO_LOG
 
 #include "logLib.h"
 #include "debugMacros.h"
@@ -12,6 +13,9 @@
 int main() {
     setLoggingLevel(DEBUG);
     //stateLogFile("logFile.txt");
+
+    LOG_FUNC_STARTED();
+    LOG_FUNC_FINISHED();
 
     const char* constCharPtrVar = "i am const char ptr";
     int intVar = 10;

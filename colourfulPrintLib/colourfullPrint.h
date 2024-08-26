@@ -5,6 +5,7 @@
 #include "../debugMacros.h"
 
 // bold:
+
 // char* const RED_COLOR[2] = {"\033[1;31m", "\033[0m"};
 
 
@@ -60,7 +61,7 @@ enum Colors getCurrentColor();
         fprintf(stream, "%s", getColor(BASE_COLOR));        \
     } while(0)
 
-#define colourfullPrint(...) colourfullPrintToStream(stdin, __VA_ARGS__)
+#define colourfullPrint(...) colourfullPrintToStream(stdout, __VA_ARGS__)
 
 /// @brief prints in stderror but with red color
 #define printError(...)                                     \
