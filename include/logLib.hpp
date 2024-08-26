@@ -56,6 +56,7 @@ do {                                                                            
     FILE* logFile = getLogFile();                                                                   \
     bool isTransferToFile = !isatty(STDERR_FILENO);                                                 \
     FILE* stream = (logFile == NULL || isTransferToFile) ? stderr : logFile;                        \
+    setvbuf(stream, NULL, _IONBF, 0);                                                               \
                                                                                                     \
     const char* logMessage = getLoggingMessage(level, __FILE__, __FUNCTION__, __LINE__);            \
     if (isTransferToFile || logFile != NULL) {                                                      \
