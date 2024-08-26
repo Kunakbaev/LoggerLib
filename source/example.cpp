@@ -18,7 +18,7 @@ int main() {
     bool boolVar = true;
     long double longDoubleVar = 3.141592;
     FILE* file = getLogFile(); // for file it will output ?, unknown type
-    DEBUG_(constCharPtrVar, intVar, boolVar, file);
+    DEBUG_(constCharPtrVar, longDoubleVar, boolVar, file);
 
     //enum Levels lo = DEBUG;
     LOG_DEBUG("i am log debug\n");

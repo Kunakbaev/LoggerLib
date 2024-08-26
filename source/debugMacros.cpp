@@ -22,6 +22,14 @@ const char* varToFormat(int){
     return "%d";
 }
 
+const char* varToFormat(long double){
+    return "%Lg";
+}
+
+const char* varToFormat(double){
+    return "%g";
+}
+
 const char* varToFormat(void*){
     return "%p";
 }

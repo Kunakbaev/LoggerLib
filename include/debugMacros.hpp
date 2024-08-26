@@ -17,11 +17,13 @@
 // };
 
 const char* varToFormat(char);
-const char* varToFormat(void*);
-const char* varToFormat(bool);
 const char* varToFormat(char*);
 const char* varToFormat(const char*);
+const char* varToFormat(void*);
+const char* varToFormat(bool);
 const char* varToFormat(int);
+const char* varToFormat(double);
+const char* varToFormat(long double);
 
 /*
 
