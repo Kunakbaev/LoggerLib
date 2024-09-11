@@ -9,6 +9,7 @@
 #include <assert.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <assert.h>
 
 #include "debugMacros.hpp"
 #include "colourfullPrint.hpp"
@@ -53,13 +54,13 @@ void destructLogger();
 #define DO_STUFF(isDebug, level, func_1, func_2, ...)                                               \
 do {                                                                                                \
     changeTextColor(getTextColorForLevel(level));                                                   \
-    FILE* logFile = getLogFile();                                                                   \
+    FILE* fileForLogging = getLogFile();                                                            \
     bool isTransferToFile = !isatty(STDERR_FILENO);                                                 \
-    FILE* stream = (logFile == NULL || isTransferToFile) ? stderr : logFile;                        \
+    FILE* stream = (fileForLogging == NULL || isTransferToFile) ? stderr : fileForLogging;          \
     setvbuf(stream, NULL, _IONBF, 0);                                                               \
                                                                                                     \
     const char* logMessage = getLoggingMessage(level, __FILE__, __FUNCTION__, __LINE__);            \
-    if (isTransferToFile || logFile != NULL) {                                                      \
+    if (isTransferToFile || fileForLogging != NULL) {                                               \
         fprintf(stream, "%s", logMessage);                                                          \
         func_1(stream, __VA_ARGS__);                                                                \
     } else {                                                                                        \
@@ -71,19 +72,22 @@ do {                                                                            
 #ifndef NO_LOG
     #define DEBUG_(...)                                                                             \
         do {                                                                                        \
-            static_cast<bool>(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                   \
+            static_assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                       \
             if (getLoggingLevel() == DEBUG)                                                         \
                 DO_STUFF(true, DEBUG, DBG_TO_STREAM, colourfullDebugToStream, ##__VA_ARGS__);       \
         } while (0)
 
+    #define LOG_DEBUG_VARS(...) DEBUG_(__VA_ARGS__)
+
     #define LOG_MESSAGE(level, ...)                                                                 \
         do {                                                                                        \
-            static_cast<bool>(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                   \
+            static_assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                       \
             if (level >= getLoggingLevel())                                                         \
                 DO_STUFF(false, level, fprintf, colourfullPrintToStream, __VA_ARGS__);                                                \
         } while (0)
 #else
     #define DEBUG_(...)             (void)(0)
+    #define LOG_DEBUG_VARS(...)     (void)(0)
     #define LOG_MESSAGE(level, ...) (void)(0)
 #endif
 

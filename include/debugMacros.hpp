@@ -24,6 +24,7 @@ const char* varToFormat(bool);
 const char* varToFormat(int);
 const char* varToFormat(double);
 const char* varToFormat(long double);
+const char* varToFormat(size_t x);
 
 /*
 

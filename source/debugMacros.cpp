@@ -1,4 +1,5 @@
 #include <stdbool.h>
+#include <stdlib.h>
 
 #include "../include/debugMacros.hpp"
 
@@ -32,4 +33,8 @@ const char* varToFormat(double){
 
 const char* varToFormat(void*){
     return "%p";
+}
+
+const char* varToFormat(size_t) {
+    return "%zu";
 }

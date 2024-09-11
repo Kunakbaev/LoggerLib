@@ -51,7 +51,7 @@ const char* getCurrentTimeFormatted() {
     struct timeval currentTime = {};
     gettimeofday(&currentTime, NULL);
 
-    long long mils = (long double)currentTime.tv_usec / 1000; // 1000 - mils in one second
+    long long mils = (long long)((long double)currentTime.tv_usec / 1000); // 1000 - mils in one second
     struct tm *tm_info = localtime(&currentTime.tv_sec);
     assert(tm_info != NULL);
 
@@ -60,7 +60,7 @@ const char* getCurrentTimeFormatted() {
     return timeBuffer;
 }
 
-static int getTrimDx(const char* line, int maxLen) {
+static size_t getTrimDx(const char* line, size_t maxLen) {
     assert(line != NULL);
 
     size_t len = strlen(line);
@@ -80,9 +80,6 @@ const char* getLoggingMessage(enum Levels level, const char* fileName, const cha
         funcName + getTrimDx(funcName, 20), line
     );
     sprintf(buffer, "%-80s%-7s:    ", tmpBuffer, logMessage);
-    // sprintf(buffer, "%-7s from File: %-30.30s, Function: %-20.20s, Line: %-4d at %s   ->   ",
-    //         logMessage, fileName + getTrimDx(fileName, 30),
-    //         funcName + getTrimDx(funcName, 20), line, currentTime);
     return buffer;
 }
 

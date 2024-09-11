@@ -13,14 +13,13 @@ int main() {
     LOG_FUNC_STARTED();
     LOG_FUNC_FINISHED();
 
-    const char* constCharPtrVar = "i am const char ptr";
     int intVar = 10;
-    bool boolVar = true;
+    size_t sizeTvar = 10;
     long double longDoubleVar = 3.141592;
+    const char* constCharPtrVar = "i am const char ptr";
     FILE* file = getLogFile(); // for file it will output ?, unknown type
-    DEBUG_(constCharPtrVar, longDoubleVar, boolVar, file);
+    LOG_DEBUG_VARS(intVar, sizeTvar, constCharPtrVar, longDoubleVar, file);
 
-    //enum Levels lo = DEBUG;
     LOG_DEBUG("i am log debug\n");
     LOG_INFO("i am log info\n");
     LOG_WARNING("i am log warn\n");
