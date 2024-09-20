@@ -63,9 +63,11 @@ do {                                                                            
     if (isTransferToFile || fileForLogging != NULL) {                                               \
         fprintf(stream, "%s", logMessage);                                                          \
         func_1(stream, __VA_ARGS__);                                                                \
+        fprintf(stream, "\n");                                                                      \
     } else {                                                                                        \
         colourfullPrintToStream(stream, "%s", logMessage);                                          \
         func_2(stream, __VA_ARGS__);                                                                \
+        colourfullPrintToStream(stream, "\n");                                                      \
     }                                                                                               \
 } while (0)
 
@@ -83,7 +85,7 @@ do {                                                                            
         do {                                                                                        \
             static_assert(DEBUG < INFO && INFO < WARNING && WARNING < ERROR);                       \
             if (level >= getLoggingLevel())                                                         \
-                DO_STUFF(false, level, fprintf, colourfullPrintToStream, __VA_ARGS__);                                                \
+                DO_STUFF(false, level, fprintf, colourfullPrintToStream, ##__VA_ARGS__);                                                \
         } while (0)
 #else
     #define DEBUG_(...)             (void)(0)

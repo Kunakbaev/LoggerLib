@@ -20,10 +20,10 @@ int main() {
     FILE* file = getLogFile(); // for file it will output ?, unknown type
     LOG_DEBUG_VARS(intVar, sizeTvar, constCharPtrVar, longDoubleVar, file);
 
-    LOG_DEBUG("i am log debug\n");
-    LOG_INFO("i am log info\n");
-    LOG_WARNING("i am log warn\n");
-    LOG_ERROR("i am log error\n");
+    LOG_DEBUG("i am log debug");
+    LOG_INFO("i am log info");
+    LOG_WARNING("i am log warn");
+    LOG_ERROR("i am log error");
 
     destructLogger();
 	return 0;
