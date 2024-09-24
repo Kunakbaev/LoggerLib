@@ -63,11 +63,13 @@ do {                                                                            
     if (isTransferToFile || fileForLogging != NULL) {                                               \
         fprintf(stream, "%s", logMessage);                                                          \
         func_1(stream, __VA_ARGS__);                                                                \
-        fprintf(stream, "\n");                                                                      \
+        if (!isDebug)                                                                               \
+            fprintf(stream, "\n");                                                                  \
     } else {                                                                                        \
         colourfullPrintToStream(stream, "%s", logMessage);                                          \
         func_2(stream, __VA_ARGS__);                                                                \
-        colourfullPrintToStream(stream, "\n");                                                      \
+        if (!isDebug)                                                                               \
+            colourfullPrintToStream(stream, "\n");                                                  \
     }                                                                                               \
 } while (0)
 
