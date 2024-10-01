@@ -33,6 +33,12 @@ const char* format = varToFormat(x);                                    \
 
 */
 
+// NOTE: this is a logger lib, so any warnings from it interfere with warnings from main project
+// also there just too many of them, when same macros is used over and over again
+
+//#pragma GCC diagnostic ignored "Wformat-non-literal"
+#pragma GCC diagnostic ignored "-Wformat-security"
+
 #define OUTPUT_VARIABLE_TO_STREAM(stream, x)                                    \
     do {                                                                        \
         fprintf(stream, "[%s : ", #x);                                          \
@@ -54,3 +60,6 @@ const char* format = varToFormat(x);                                    \
 
 
 #endif
+
+// NOTE: unfortunately, because that's macros, warning cannot be turned back on again
+//#pragma GCC diagnostic warning "-Wformat-security"

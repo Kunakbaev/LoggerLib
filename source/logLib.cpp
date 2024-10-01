@@ -79,7 +79,10 @@ const char* getLoggingMessage(enum Levels level, const char* fileName, const cha
         fileName + getTrimDx(fileName, 30),
         funcName + getTrimDx(funcName, 20), line
     );
+
+    #pragma GCC diagnostic ignored "-Wformat-overflow="
     sprintf(buffer, "%-80s%-7s:    ", tmpBuffer, logMessage);
+    #pragma GCC diagnostic ignored "-Wformat-overflow="
     return buffer;
 }
 
