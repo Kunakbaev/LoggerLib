@@ -36,7 +36,7 @@ const char* format = varToFormat(x);                                    \
 // NOTE: this is a logger lib, so any warnings from it interfere with warnings from main project
 // also there just too many of them, when same macros is used over and over again
 
-//#pragma GCC diagnostic ignored "Wformat-non-literal"
+#pragma GCC diagnostic ignored "-Wformat-nonliteral"
 #pragma GCC diagnostic ignored "-Wformat-security"
 
 #define OUTPUT_VARIABLE_TO_STREAM(stream, x)                                    \
