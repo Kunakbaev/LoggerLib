@@ -3,6 +3,10 @@ CFLAGS := -D _DEBUG -lm -ggdb3 -std=c++17 -O0 -Wall -Wextra -Weffc++ -Waggressiv
 # CFLAGS = -D _DEBUG
 # CFLAGS += -fsanitize=address
 
+# ASK: for some reason 'lib' prefix must be added to the file name
+MY_LIBS_PATH := /usr/local/lib/
+MY_LIB_NAME  := libmy_loglib
+
 # [[fallthrough]]
 
 # 1) libRun -> variable; testRun -> variable
@@ -34,6 +38,15 @@ $(BUILD_DIR)/%.o: $(SOURCE_DIR)/%.cpp $(BUILD_DIR)
 
 run: $(LIB_RUN_NAME)
 	@$(BUILD_DIR)/$(LIB_RUN_NAME)
+
+# ASK: how does it work? expor LD_LIBRARY_PATH=/usr/local/bin:$$LD_LIBRARY_PATH, just temprorarily stores info to var? config just saves changes?
+install:
+	@echo installing logger lib .so lib file
+	$(CC) -shared -o $(MY_LIB_NAME).so -lm -fPIC $(SRC)
+	@echo i hope this is safe command and there is nothing to worry about
+	sudo mv $(MY_LIB_NAME).so $(MY_LIBS_PATH)/$(MY_LIB_NAME).so
+	export LD_LIBRARY_PATH=/usr/local/bin:$$LD_LIBRARY_PATH
+	sudo ldconfig
 
 
 
