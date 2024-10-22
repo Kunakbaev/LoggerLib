@@ -75,9 +75,9 @@ const char* getLoggingMessage(enum Levels level, const char* fileName, const cha
     const char* logMessage = getLogMessage(level);
 
     //2024-08-26 16:40:51:557 | source/main.cpp:main(38):
-    sprintf(tmpBuffer, "%s | %s:%s:(%d)", currentTime,
-        fileName + getTrimDx(fileName, 30),
-        funcName + getTrimDx(funcName, 20), line
+    sprintf(tmpBuffer, "%s | %s:%d(%s)", currentTime,
+        fileName + getTrimDx(fileName, 30), line,
+        funcName + getTrimDx(funcName, 20)
     );
 
     #pragma GCC diagnostic ignored "-Wformat-overflow="
