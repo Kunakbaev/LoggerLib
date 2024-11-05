@@ -86,6 +86,10 @@ const char* getLoggingMessage(enum Levels level, const char* fileName, const cha
     return buffer;
 }
 
+void flushLogFile() {
+    fflush(logFile);
+}
+
 void stateLogFile(const char* logFileName) {
     //assert(logFileName != NULL);
     if (logFileName == NULL) { // change stream to stderr
@@ -95,12 +99,13 @@ void stateLogFile(const char* logFileName) {
 
     // we want to add to file, not to clear it every time we relaunch our app
     logFile = fopen(logFileName, "a");
+    setvbuf(logFile, NULL, _IONBF, 0);
     if (logFile == NULL) {
         printError("%s", FILE_OPENING_ERROR);
     }
 
     //fprintf(logFile, "------------------------------------\n");
-    LOG_INFO("New logging session started\n");
+    //LOG_INFO("New logging session started\n");
 }
 
 FILE* getLogFile() {

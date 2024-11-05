@@ -34,22 +34,15 @@ enum Levels {
 };
 
 const char* getLogMessage(enum Levels level);
-
 enum Colors getTextColorForLevel(enum Levels level);
-
 void setLoggingLevel(enum Levels level);
-
 enum Levels getLoggingLevel();
-
 const char* getCurrentTimeFormatted();
-
 const char* getLoggingMessage(enum Levels level, const char* fileName, const char* funcName, int line);
-
 void stateLogFile(const char* logFileName);
-
 FILE* getLogFile();
-
 void destructLogger();
+void flushLogFile();
 
 #define DO_STUFF(isDebug, level, func_1, func_2, ...)                                               \
 do {                                                                                                \
