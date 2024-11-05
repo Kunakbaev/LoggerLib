@@ -90,7 +90,7 @@ void flushLogFile() {
     fflush(logFile);
 }
 
-void stateLogFiel(FILE* file) {
+void stateLogFile(FILE* file) {
     logFile = file;
 }
 
