@@ -90,7 +90,11 @@ void flushLogFile() {
     fflush(logFile);
 }
 
-void stateLogFile(const char* logFileName) {
+void stateLogFiel(FILE* file) {
+    logFile = file;
+}
+
+void stateLogFileName(const char* logFileName) {
     //assert(logFileName != NULL);
     if (logFileName == NULL) { // change stream to stderr
         logFile = NULL;
