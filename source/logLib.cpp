@@ -87,7 +87,11 @@ const char* getLoggingMessage(enum Levels level, const char* fileName, const cha
 }
 
 void stateLogFile(const char* logFileName) {
-    assert(logFileName != NULL);
+    //assert(logFileName != NULL);
+    if (logFileName == NULL) { // change stream to stderr
+        logFile = NULL;
+        return;
+    }
 
     // we want to add to file, not to clear it every time we relaunch our app
     logFile = fopen(logFileName, "a");
