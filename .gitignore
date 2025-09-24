@@ -1,6 +1,6 @@
-main
+.out
 .vscode
 build
 logFile
-bruh
+bin
 ./source/example

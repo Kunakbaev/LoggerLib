@@ -3,19 +3,6 @@
 
 #include "hiddenCringe.hpp"
 
-// enum DataTypes {
-//     CHAR_TYPE,
-//     CHAR_PTR_TYPE,
-//     CONST_CHAR_PTR_TYPE,
-//     INT_TYPE, INT_PTR_TYPE,
-//     FLOAT_TYPE,
-//     DOUBLE_TYPE,
-//     LONG_DOUBLE_TYPE,
-//     BOOL_TYPE,
-//     VOID_PTR_TYPE,
-//     UNKNOWN_TYPE,
-// };
-
 const char* varToFormat(char);
 const char* varToFormat(char*);
 const char* varToFormat(const char*);

@@ -1,0 +1,5 @@
+* replace make with cmake
+* rewrite whole library on c++, so that I can use namespace my_loglib::... or smth when working from other projects with my lib
+* remove incovenient defines and log levels. For example DEBUG log level (enum name) is seen from file where logLib.hpp is included -> this is very bad, DEBUG is a common name for flags, defines and etc.
+* change installation method of library to smth more handy.
+* apply all this changes when I will have more free time (probably never).

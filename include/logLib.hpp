@@ -1,5 +1,5 @@
-#ifndef LOG_LIB
-#define LOG_LIB
+#ifndef INCLUDE_MY_LOGGER_LIB_HPP_
+#define INCLUDE_MY_LOGGER_LIB_HPP_
 
 #include <stdio.h>
 #include <time.h>
