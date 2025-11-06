@@ -9,31 +9,35 @@ include(CMakePackageConfigHelpers)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Compiler warnings (equivalent to your extensive warning flags)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Weffc++ -Waggressive-loop-optimizations")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wc++14-compat -Wmissing-declarations -Wcast-align -Wcast-qual")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wchar-subscripts -Wconditionally-supported -Wconversion")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wctor-dtor-privacy -Wempty-body -Wfloat-equal -Wformat-nonliteral")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wformat-security -Wformat-signedness -Wformat=2 -Winline")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wlogical-op -Wnon-virtual-dtor -Wopenmp-simd -Woverloaded-virtual")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wpacked -Wpointer-arith -Winit-self -Wredundant-decls -Wshadow")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wsign-conversion -Wsign-promo -Wstrict-null-sentinel")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wstrict-overflow=2 -Wsuggest-attribute=noreturn")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wsuggest-final-methods -Wsuggest-final-types -Wsuggest-override")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wswitch-default -Wswitch-enum -Wsync-nand -Wundef")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wunreachable-code -Wunused -Wuseless-cast -Wvariadic-macros")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-literal-suffix -Wno-missing-field-initializers -Wno-narrowing")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-old-style-cast -Wno-varargs -Wstack-protector")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fcheck-new -fsized-deallocation -fstack-protector")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fstrict-overflow -flto-odr-type-merging -fno-omit-frame-pointer")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror=vla")
+# --------------    set compilation flags   ----------------
 
-# Debug-specific flags
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_DEBUG -ggdb3 -O0 -pie -fPIE")
-else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DNDEBUG")
+# basic flags for compilation and debugging
+set(DEBUG_FLAGS -ggdb3 -fno-omit-frame-pointer)
+
+# general warnings
+set(WARNING_FLAGS -Wall -Wextra -Wpedantic)
+
+# security flags
+set(SECURITY_FLAGS -fstack-protector -pie -fPIE -Wformat=2 -Wformat-security)
+
+# specific flags
+set(CPP_SPECIFIC_FLAGS -Wnon-virtual-dtor -Woverloaded-virtual)
+
+set(COMMON_CXX_FLAGS ${WARNING_FLAGS})
+
+# ------------    specifying compilation options based on build type    ------------
+
+if(CMAKE_BUILD_TYPE STREQUAL "Release")
+  add_compile_definitions(NO_LOG NDEBUG)
+  set(COMPILATION_FLAGS ${COMMON_CXX_FLAGS} -O2 -DNDEBUG)
+  message(STATUS "Building in Release mode")
+elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
+  add_compile_definitions(_DEBUG)
+  set(COMPILATION_FLAGS ${COMMON_CXX_FLAGS} -O0 -g ${SECURITY_FLAGS} ${CPP_SPECIFIC_FLAGS})
+  message(STATUS "Building in Debug mode")
 endif()
+
+# ------------------------------------------------------------
 
 # Find source files
 file(GLOB SRC_FILES "source/*.cpp")
